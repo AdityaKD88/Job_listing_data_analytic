@@ -19,41 +19,83 @@ def salary():
     ops = ['Minimum Salary','Maximum Salary','Average Salary']
     sel_sal = st.selectbox("Select",ops)
     if sel_sal==ops[0]:
-        fig = px.histogram(df, x='minimal_salary', marginal='box', 
-                   color_discrete_sequence=['#330C73'])
-        fig.update_layout(
-            height=600, width=800, title_text='Minimal Salary',
-            xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
-            font=dict(
-                    family="Courier New, monospace",
-                    size=18,
-                    color="black"        
-        ))
-        st.plotly_chart(fig)
+        op=['Histogram','Line']
+        sel=st.selectbox("Select",op)
+        if sel==op[0]:
+            fig = px.histogram(df, x='minimal_salary', marginal='box', 
+                    color_discrete_sequence=['#330C73'])
+            fig.update_layout(
+                height=600, width=800, title_text='Minimal Salary',
+                xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
+                font=dict(
+                        family="Courier New, monospace",
+                        size=18,
+                        color="black"        
+            ))
+            st.plotly_chart(fig)
+        elif sel==op[1]:
+            fig = px.line(df, x='minimal_salary')
+            fig.update_layout(
+                height=600, width=800, title_text='Minimal Salary',
+                xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
+                font=dict(
+                        family="Courier New, monospace",
+                        size=18,
+                        color="black"        
+            ))
+            st.plotly_chart(fig)
     elif sel_sal==ops[1]:
-        fig = px.histogram(df, x='maximal_salary', marginal='box', 
-                   color_discrete_sequence=['#330C73'])
-        fig.update_layout(
+        op=['Histogram','Line']
+        sel=st.selectbox("Select",op)
+        if sel==op[0]:
+            fig = px.histogram(df, x='maximal_salary', marginal='box', 
+                    color_discrete_sequence=['#330C73'])
+            fig.update_layout(
+                height=600, width=800, title_text='Maximal Salary',
+                xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
+                font=dict(
+                        family="Courier New, monospace",
+                        size=18,
+                        color="black" 
+            ))
+            st.plotly_chart(fig)
+        if sel==op[1]:
+            fig = px.line(df, x='maximal_salary')
+            fig.update_layout(
             height=600, width=800, title_text='Maximal Salary',
             xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
             font=dict(
-                    family="Courier New, monospace",
-                    size=18,
-                    color="black" 
-        ))
-        st.plotly_chart(fig)
+                        family="Courier New, monospace",
+                        size=18,
+                        color="black"        
+            ))
+            st.plotly_chart(fig)
     elif sel_sal==ops[2]:
-        fig = px.histogram(df, x='average_salary', marginal='box', 
-                   color_discrete_sequence=['#330C73'])
-        fig.update_layout(
+        op=['Histogram','Line']
+        sel=st.selectbox("Select",op)
+        if sel==op[0]:
+            fig = px.histogram(df, x='average_salary', marginal='box', 
+                    color_discrete_sequence=['#330C73'])
+            fig.update_layout(
+                height=600, width=800, title_text='Average Salary',
+                xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
+                font=dict(
+                        family="Courier New, monospace",
+                        size=18,
+                        color="black"
+            ))
+            st.plotly_chart(fig)
+        if sel==op[1]:
+            fig = px.line(df, x='average_salary')
+            fig.update_layout(
             height=600, width=800, title_text='Average Salary',
             xaxis_title='salaries', yaxis_title="count", title_x = 0.5,
             font=dict(
-                    family="Courier New, monospace",
-                    size=18,
-                    color="black"
-        ))
-        st.plotly_chart(fig)
+                        family="Courier New, monospace",
+                        size=18,
+                        color="black"        
+            ))
+            st.plotly_chart(fig)
 
 def job_open():
     df=load_data()
